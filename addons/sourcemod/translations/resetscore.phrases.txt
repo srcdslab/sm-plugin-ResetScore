@@ -1,0 +1,15 @@
+"Phrases"
+{
+	"RsDisabled"
+	{
+		"en" "[SM] ResetScore is disabled."
+	}
+	"NoScore"
+	{
+		"en" "[SM] No score."
+	}
+	"ScoreReseted"
+	{
+		"en" "[SM] You have reseted your score."
+	}
+}
