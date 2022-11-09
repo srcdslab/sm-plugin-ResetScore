@@ -1,5 +1,6 @@
 #include <sourcemod>
 #include <sdktools>
+
 #include <multicolors>
 
 #pragma tabsize 0
@@ -12,7 +13,7 @@ public Plugin myinfo =
 	name = "ResetScore",
 	author = "ire.",
 	description = "Reset your score",
-	version = "1.1",
+	version = "1.1.0",
 };
 
 public void OnPluginStart()
@@ -29,21 +30,21 @@ public void OnPluginStart()
 
 public Action ResetScore(int client, int args)
 {
-	if(!g_cvEnableRs.BoolValue)
+	if (!g_cvEnableRs.BoolValue)
 	{
 		CPrintToChat(client, "%t", "RsDisabled");
-		return Plugin_Handled;		
+		return Plugin_Handled;
 	}
-	if(GetEntProp(client, Prop_Data, "m_iFrags") == 0 && GetEntProp(client, Prop_Data, "m_iDeaths") == 0)
+
+	if (GetEntProp(client, Prop_Data, "m_iFrags") == 0 && GetEntProp(client, Prop_Data, "m_iDeaths") == 0)
 	{
 		CPrintToChat(client, "%t", "NoScore");
-		return Plugin_Handled;
 	}
 	else
 	{
 		SetEntProp(client, Prop_Data, "m_iFrags", 0);
 		SetEntProp(client, Prop_Data, "m_iDeaths", 0);
 		CPrintToChat(client, "%t", "ScoreReseted");
-		return Plugin_Handled;
-		}
+	}
+	return Plugin_Handled;
 }
