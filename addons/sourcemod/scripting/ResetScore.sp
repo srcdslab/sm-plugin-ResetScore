@@ -13,7 +13,7 @@ public Plugin myinfo =
 	name = "ResetScore",
 	author = "ire.",
 	description = "Reset your score",
-	version = "1.1.0",
+	version = "1.1.1",
 };
 
 public void OnPluginStart()
@@ -48,3 +48,4 @@ public Action ResetScore(int client, int args)
 	}
 	return Plugin_Handled;
 }
+
