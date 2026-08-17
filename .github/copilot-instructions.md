@@ -13,12 +13,12 @@ This repository contains **ResetScore**, a SourceMod plugin for Source engine ga
 ## Technical Environment
 
 - **Language**: SourcePawn (.sp files)
-- **Platform**: SourceMod 1.11.0+ (specifically tested with 1.11.0-git6917)
-- **Build System**: SourceKnight (Python-based SourcePawn build tool)
+- **Platform**: SourceMod 1.12.x
+- **Build System**: Native GitHub Actions using `rumblefrog/setup-sp` (spcomp)
 - **Dependencies**: 
   - SourceMod SDK
   - MultiColors plugin (for colored chat messages)
-- **CI/CD**: GitHub Actions with SourceKnight action
+- **CI/CD**: GitHub Actions workflow (`.github/workflows/ci.yml`)
 
 ## Project Structure
 
@@ -34,26 +34,25 @@ addons/sourcemod/
 │   └── ci.yml                     # GitHub Actions CI/CD pipeline
 └── dependabot.yml                 # Dependency update automation
 
-sourceknight.yaml                  # Build configuration and dependencies
 .gitignore                         # Git ignore rules (includes build artifacts)
 ```
 
 ## Build & Development Workflow
 
 ### Local Development
-1. **Prerequisites**: Python 3.x with SourceKnight package
-2. **Build Command**: `sourceknight build` (if SourceKnight is installed)
+1. **Prerequisites**: SourcePawn compiler (`spcomp`) 1.12.x
+2. **Build Command**: `spcomp -i include -o ../plugins/ResetScore.smx ResetScore.sp` from `addons/sourcemod/scripting`
 3. **Build Output**: Compiled `.smx` files go to `addons/sourcemod/plugins/`
 
 ### Dependencies Management
-Dependencies are defined in `sourceknight.yaml`:
-- SourceMod SDK is automatically downloaded and configured
-- MultiColors plugin is pulled from GitHub and included
+Dependencies are declared and cloned directly in `.github/workflows/ci.yml`:
+- SourceMod SDK is provided by `rumblefrog/setup-sp`
+- MultiColors plugin is cloned from GitHub and its include files copied in
 
 ### CI/CD Pipeline
 - **Trigger**: Push, PR, or manual workflow dispatch
 - **Process**: 
-  1. Build plugin using SourceKnight action
+  1. Build plugin using `spcomp` via `rumblefrog/setup-sp`
   2. Package with translations
   3. Create releases with artifacts
   4. Auto-tag latest builds from main/master branch
@@ -133,7 +132,7 @@ The plugin uses SourceMod's ConVar system:
 4. Use translation system for all user feedback
 
 ### Updating Dependencies
-1. Modify `sourceknight.yaml` to update versions
+1. Modify `.github/workflows/ci.yml` to update the dependency clone/copy step
 2. Test build process to ensure compatibility
 3. Update CI if SourceMod version requirements change
 
@@ -152,11 +151,11 @@ The plugin uses SourceMod's ConVar system:
 ## Troubleshooting
 
 ### Common Issues
-1. **Compilation Errors**: Check SourceMod SDK version compatibility (requires 1.11.0+)
+1. **Compilation Errors**: Check SourceMod SDK version compatibility (requires 1.12.x)
 2. **Missing Dependencies**: Verify MultiColors plugin is included in build environment
 3. **Runtime Errors**: Check SourceMod error logs for entity property issues
 4. **Translation Issues**: Ensure phrase keys match between code and translation file
-5. **Build Failures**: Verify `sourceknight.yaml` dependencies are accessible and versions are valid
+5. **Build Failures**: Verify the dependency clone/copy step in `.github/workflows/ci.yml` is accessible and versions are valid
 
 ### Debug Steps
 1. Check SourceMod error logs (`logs/errors_*.log`)
@@ -164,7 +163,7 @@ The plugin uses SourceMod's ConVar system:
 3. Test ConVar values with `sm_rs_enabled` console command
 4. Validate plugin compilation with `sm plugins load resetscore`
 5. Use SourceMod's built-in debugging features (`sm_debug 1`)
-6. For CI issues, check GitHub Actions logs for SourceKnight build output
+6. For CI issues, check GitHub Actions logs for the Build job output
 
 ## Security Considerations
 
@@ -176,5 +175,4 @@ The plugin uses SourceMod's ConVar system:
 
 - [SourceMod Documentation](https://wiki.alliedmods.net/Category:SourceMod_Documentation)
 - [SourcePawn Language Reference](https://wiki.alliedmods.net/Category:SourcePawn)
-- [SourceKnight Build Tool](https://github.com/srcdslab/sourceknight)
 - [MultiColors Plugin](https://github.com/srcdslab/sm-plugin-MultiColors)
