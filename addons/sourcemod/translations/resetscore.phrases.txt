@@ -3,13 +3,31 @@
 	"RsDisabled"
 	{
 		"en" "[SM] ResetScore is disabled."
+		"fr" "[SM] ResetScore est désactivé."
+		"ru" "[SM] ResetScore отключён."
+		"es" "[SM] ResetScore está desactivado."
+		"de" "[SM] ResetScore ist deaktiviert."
+		"pt" "[SM] ResetScore está desativado."
+		"chi" "[SM] ResetScore 已禁用。"
 	}
 	"NoScore"
 	{
 		"en" "[SM] No score."
+		"fr" "[SM] Votre score est déjà à zéro."
+		"ru" "[SM] Ваш счёт уже обнулён."
+		"es" "[SM] Tu puntuación ya está en cero."
+		"de" "[SM] Dein Punktestand ist bereits auf null."
+		"pt" "[SM] Sua pontuação já está zerada."
+		"chi" "[SM] 你的分数已经为零。"
 	}
 	"ScoreReseted"
 	{
-		"en" "[SM] You have reseted your score."
+		"en" "[SM] You have reset your score."
+		"fr" "[SM] Vous avez remis votre score à zéro."
+		"ru" "[SM] Вы обнулили свой счёт."
+		"es" "[SM] Has reiniciado tu puntuación."
+		"de" "[SM] Du hast deinen Punktestand zurückgesetzt."
+		"pt" "[SM] Você zerou sua pontuação."
+		"chi" "[SM] 你已重置你的分数。"
 	}
 }
