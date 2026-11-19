@@ -9,6 +9,12 @@
 		"de" "[SM] ResetScore ist deaktiviert."
 		"pt" "[SM] ResetScore está desativado."
 		"chi" "[SM] ResetScore 已禁用。"
+		"pl" "[SM] ResetScore jest wyłączony."
+		"tr" "[SM] ResetScore devre dışı."
+		"it" "[SM] ResetScore è disattivato."
+		"ua" "[SM] ResetScore вимкнено."
+		"zho" "[SM] ResetScore 已停用。"
+		"cze" "[SM] ResetScore je vypnuto."
 	}
 	"NoScore"
 	{
@@ -19,6 +25,12 @@
 		"de" "[SM] Dein Punktestand ist bereits auf null."
 		"pt" "[SM] Sua pontuação já está zerada."
 		"chi" "[SM] 你的分数已经为零。"
+		"pl" "[SM] Twój wynik już wynosi zero."
+		"tr" "[SM] Skorun zaten sıfır."
+		"it" "[SM] Il tuo punteggio è già a zero."
+		"ua" "[SM] Ваш рахунок уже нульовий."
+		"zho" "[SM] 你的分數已經是零。"
+		"cze" "[SM] Tvé skóre je už nulové."
 	}
 	"ScoreReseted"
 	{
@@ -29,5 +41,11 @@
 		"de" "[SM] Du hast deinen Punktestand zurückgesetzt."
 		"pt" "[SM] Você zerou sua pontuação."
 		"chi" "[SM] 你已重置你的分数。"
+		"pl" "[SM] Zresetowano twój wynik."
+		"tr" "[SM] Skorunu sıfırladın."
+		"it" "[SM] Hai azzerato il tuo punteggio."
+		"ua" "[SM] Ви скинули свій рахунок."
+		"zho" "[SM] 你已重置你的分數。"
+		"cze" "[SM] Resetoval(a) jsi své skóre."
 	}
 }
